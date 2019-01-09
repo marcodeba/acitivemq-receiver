@@ -17,7 +17,6 @@ public class JMSTopicConsumer01 {
                         ("tcp://localhost:61616");
         Connection connection = null;
         try {
-
             connection = connectionFactory.createConnection();
             connection.start();
 

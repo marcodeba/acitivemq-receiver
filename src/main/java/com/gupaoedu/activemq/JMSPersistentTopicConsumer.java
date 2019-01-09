@@ -17,7 +17,6 @@ public class JMSPersistentTopicConsumer {
                         ("tcp://localhost:61616");
         Connection connection = null;
         try {
-
             connection = connectionFactory.createConnection();
             connection.setClientID("Mic-001");
 

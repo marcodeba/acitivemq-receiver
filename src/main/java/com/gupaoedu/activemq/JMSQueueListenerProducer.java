@@ -18,7 +18,6 @@ public class JMSQueueListenerProducer {
                         ("tcp://localhost:61616");
         Connection connection = null;
         try {
-
             connection = connectionFactory.createConnection();
             connection.start();
 
