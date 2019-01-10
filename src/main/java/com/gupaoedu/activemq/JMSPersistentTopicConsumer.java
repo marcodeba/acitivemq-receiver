@@ -23,7 +23,7 @@ public class JMSPersistentTopicConsumer {
             connection.start();
 
             Session session = connection.createSession
-                    (Boolean.TRUE, Session.AUTO_ACKNOWLEDGE);
+                    (Boolean.TRUE, Session.CLIENT_ACKNOWLEDGE);
             //创建目的地
             Topic destination = session.createTopic("myTopic");
             //创建发送者
@@ -31,9 +31,9 @@ public class JMSPersistentTopicConsumer {
 
             TextMessage textMessage = (TextMessage) consumer.receive();
             System.out.println(textMessage.getText());
-
-//            session.commit(); //消息被确认
-
+            //消息被确认，当Boolean.TRUE, Session.AUTO_ACKNOWLEDGE时，需要commit
+//            session.commit();
+            textMessage.acknowledge();
             session.close();
         } catch (JMSException e) {
             e.printStackTrace();

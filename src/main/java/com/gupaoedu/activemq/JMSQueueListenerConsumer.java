@@ -10,7 +10,7 @@ import java.io.IOException;
  * 加群获取视频：608583947
  * 风骚的Michael 老师
  */
-public class JMSQueueListenerProducer {
+public class JMSQueueListenerConsumer {
 
     public static void main(String[] args) {
         ConnectionFactory connectionFactory =
@@ -28,7 +28,6 @@ public class JMSQueueListenerProducer {
             //创建发送者
             MessageConsumer consumer = session.createConsumer(destination);
 
-
             MessageListener messageListener = new MessageListener() {
                 @Override
                 public void onMessage(Message message) {
@@ -44,7 +43,6 @@ public class JMSQueueListenerProducer {
             session.commit();
 
             System.in.read();
-
 
             TextMessage textMessage = (TextMessage) consumer.receive();
             System.out.println(textMessage.getText());

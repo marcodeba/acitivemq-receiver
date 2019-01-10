@@ -29,6 +29,7 @@ public class JMSQueueConsumer {
             for (int i = 0; i < 10; i++) {
                 TextMessage textMessage = (TextMessage) consumer.receive();
                 System.out.println(textMessage.getText());
+                // 8之前的全部被签收
                 if (i == 8) {
                     textMessage.acknowledge();
                 }
